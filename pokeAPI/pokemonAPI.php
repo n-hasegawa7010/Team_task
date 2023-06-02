@@ -25,10 +25,21 @@ function view_poke(){
     }
 
     $limit = 100;
-    $one_page = 20;
+    $one_page = 21;
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
+
+    echo "<div class='paging'>";
+    for($i=1; $i<=$page; $i++) {
+        echo "
+        <form action='pokemonAPI.php' method='post'>
+        <input type='hidden' name='sel_page' value='{$i}'>
+        <input type='submit' class='page_btn' value='{$i}' class='paging'>
+        </form>
+        ";
+    }
+    echo "</div>";
 
     $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
     $response = file_get_contents($url);
@@ -66,16 +77,6 @@ function view_poke(){
             echo '</div>';
         echo '</div>';
     }
-    echo "<div class='paging'>";
-    for($i=1; $i<=$page; $i++) {
-        echo "
-        <form action='pokemonAPI.php' method='post'>
-        <input type='hidden' name='sel_page' value='{$i}'>
-        <input type='submit' class='page_btn' value='{$i}' class='paging'>
-        </form>
-        ";
-    }
-    echo "</div>";
 }
 view_poke();
 
