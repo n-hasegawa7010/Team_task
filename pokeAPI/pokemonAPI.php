@@ -21,18 +21,20 @@ $response = file_get_contents($url);
 $data = json_decode($response, true);
 
 // 取得結果をループさせてポケモンの名前を表示する
-foreach($data['results'] as $key => $value){
-    echo '<div class="poke_data">';
-    echo "<br>";
-    $response_detail = file_get_contents($value['url']);
-    $data_detail = json_decode($response_detail, true);
-    echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像'"."<br>"; // デフォルト正面
-    echo "<br>";
-    echo $value['name']."<br>";  // 名前
-    // var_dump($data['type']); // タイプ
-    echo "たかさ：".$data_detail['height']." m<br>"; // たかさ
-    echo "おもさ：".$data_detail['weight']." kg<br>"; // おもさ
-    echo "<div>";
+function view_poke(){
+    foreach($data['results'] as $key => $value){
+        echo '<div class="poke_data">';
+        echo "<br>";
+        $response_detail = file_get_contents($value['url']);
+        $data_detail = json_decode($response_detail, true);
+        echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像'"."<br>"; // デフォルト正面
+        echo "<br>";
+        echo $value['name']."<br>";  // 名前
+        // var_dump($data['type']); // タイプ
+        echo "たかさ：".$data_detail['height']." m<br>"; // たかさ
+        echo "おもさ：".$data_detail['weight']." kg<br>"; // おもさ
+        echo "<div>";
+    }
 }
 ?>
 
