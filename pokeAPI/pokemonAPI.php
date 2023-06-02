@@ -18,7 +18,7 @@
 // 取得結果をループさせてポケモンの名前を表示する
 function view_poke(){
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-    $url = 'https://pokeapi.co/api/v2/pokemon/?limit=5&offset=0';
+    $url = 'https://pokeapi.co/api/v2/pokemon/?limit=15&offset=0';
     $response = file_get_contents($url);
     // レスポンスデータは JSON 形式なので、デコードして連想配列にする
     $data = json_decode($response, true);
@@ -35,17 +35,22 @@ function view_poke(){
                 echo "<br>";
             echo '</div>';
 
+            echo '<div class = "button">';
+                echo '<p class = "btnA">　</p>';
+                echo '<p class = "btnB">　</p>';
+            echo '</div>';
+
             echo '<div class = "poke_ex">';
                 // 名前
-                echo $value['name']."<br>";
+                echo "<p>".$value['name']."</p>";
                 
                 // var_dump($data['type']); // タイプ
                 
                 // たかさ
-                echo "たかさ：".$data_detail['height']." m<br>";
+                echo "<p>たかさ：".$data_detail['height']." m</p>";
                 
                 // おもさ
-                echo "おもさ：".$data_detail['weight']." kg<br>";
+                echo "<p>おもさ：".$data_detail['weight']." kg</p>";
             echo '</div>';
         echo '</div>';
     }
