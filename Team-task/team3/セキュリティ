@@ -1,0 +1,7 @@
+logs();
+function logs(){
+    if (!isset($_SESSION["user_name"])) {
+        header("Location: ../login/login.php");
+        exit();
+}
+}

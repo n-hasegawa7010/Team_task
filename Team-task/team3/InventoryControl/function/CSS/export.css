@@ -1,0 +1,29 @@
+body {
+  background-color: rgb(215, 215, 215);
+}
+
+body p {
+  margin-top: 50px;
+  text-align: center;
+}
+
+input[type="button"] {
+  border: 0;
+  display: block;
+  margin: 20px auto;
+  background-color: black;
+  border: 2px solid white;
+  padding: 15px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 25px;
+  transition: 0.25s;
+  text-align: center;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: gray;
+  border: 2px solid white;
+}

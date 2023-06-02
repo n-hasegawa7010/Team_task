@@ -1,0 +1,147 @@
+ファイル名
+login
+    login.php: ログイン
+    login_check.php:ログインチェック
+    logout.php: ログアウト(画面?)
+
+index
+    main_product.php: ホーム画面,商品一覧画面(ログイン後ここにくる)
+    main_purchase.php: 仕入れ情報一覧画面
+
+function
+    delete.php: 削除機能(商品・仕入れ両方いれる)
+    add.php: 追加機能(商品・仕入れ両方いれる)
+    update.php: 編集機能(商品・仕入れ両方いれる)
+
+関数
+
+変数
+
+
+役割分担
+5/12
+はせ: ログイン
+ひろみ: ヘッダー
+せい: メイン画面のphp
+やか: メインのhtml
+
+xammp Team3 のログイン
+ユーザ名：team3
+ホスト名：
+パスワード：team3hiromilove
+
+ユーザ名: sasaki
+パスワード: sasaki0017
+
+----------------------------------
+
+☑データベースとテーブル作成
+作成は終わったが、誰でも触れる状態になってると思う
+
+商品登録画面の作成
+→追加画面は作成。PHPを明日
+
+☑商品の一覧を表示する
+
+☑ログイン機能を追加する（ログアウトを含める）
+→ログイン・ログアウト・サインアップも完成
+
+仕入れ情報を追加する
+→追加画面は作成。PHPを明日
+
+☑仕入れ情報の一覧画面の作成
+
+仕入れ情報の削除
+→削除ボタンはできているのでPHPを明日
+
+商品の削除
+→削除ボタンはできているのでPHPを明日
+
+商品情報の編集
+→編集ボタン、編集画面はできているのでPHPでデータベースの操作を明日
+
+仕入れ情報の編集
+→編集ボタンはできている、商品編集がおわったらとりかかる
+
+商品情報をまとめて追加
+→まだできていない
+
+在庫情報一覧をCSVで出力
+
+CSS,JSで画面の操作性を高める
+
+リファクタリング
+
+
+月曜日の予定
+はせ: add_purchase
+やか: CSS
+せい: add_purchase
+ひろ: update
+-------------
+FB時間17時
+
+2023/05/15
+やること
+・パスワードの正規化(はせ)-完了
+・ぺージング(はせ)
+・追加しましたメッセージ表示削除(やぎ)
+・検索機能(やぎ)
+・ログイン済みかどうかの判定(せい)-完了
+・仕入れ情報の編集バグ(ひろみ)
+・仕入れ情報登録_名前(せい)-完了
+・CSVのファイル(せい)-完了
+・商品登録仕様変更(せい)
+・仕入れ情報登録仕様変更(せい)
+
+--------------
+2023/05/16
+やること
+・編集ページ(商品情報)
+・パスワード8文字以上
+・仕入れ情報のページング(せい、はせ)-完了
+・検索(文字列,絞り込み入れる？)
+
+CSS
+login.ph(はせ)-完了
+logout.php(はせ)-完了
+signin.php(はせ)-完了
+
+main_product.php
+main_purchase.php
+
+update_product.php(ひろみ)-完了
+update_purchase.php(ひろみ)-完了
+
+cnfirm_product.php(せい)-完了
+cnfirm_purchase.php(せい)-完了
+cnfirm_product.php(せい)-完了
+export_purchase.php(せい)-完了
+
+https://web-camp.io/magazine/archives/82498
+
+カラーコード水色
+#69eeff;
+
+背景色
+rgb(215, 215, 215);
+
+アラート（せい）
+add
+update
+delete
+complete
+
+
+<div>
+  <form action="それぞれの.php" method="post" enctype="multipart/form-data" >
+    <div>
+      <input type="file" name="input">
+    </div>
+    <div>
+      <input type="submit" value="送信する">
+    </div>
+  </form>
+</div>
+
+https://web-camp.io/magazine/archives/94835
