@@ -6,6 +6,7 @@ $response = file_get_contents($url);
 // レスポンスデータは JSON 形式なので、デコードして連想配列にする
 $data = json_decode($response, true);
 
+echo "<div class = 'pokemon_data'>";
 // 取得結果をループさせてポケモンの名前を表示する
 foreach($data['results'] as $key => $value){
     echo "<br>";
@@ -19,7 +20,7 @@ foreach($data['results'] as $key => $value){
     echo "おもさ：".$data_detail['weight']." kg<br>"; // おもさ
     echo "<hr>";
 }
-
+echo "<div>";
 ?>
 
 <!DOCTYPE html>
