@@ -1,12 +1,11 @@
 <?php
-#test
 /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-$url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=10';
+$url = 'https://pokeapi.co/api/v2/pokemon/?limit=5&offset=0';
 $response = file_get_contents($url);
 // レスポンスデータは JSON 形式なので、デコードして連想配列にする
 $data = json_decode($response, true);
 
-echo "<div class = 'pokemon_data'>";
+echo '<div class="poke_data">';
 // 取得結果をループさせてポケモンの名前を表示する
 foreach($data['results'] as $key => $value){
     echo "<br>";
@@ -18,7 +17,6 @@ foreach($data['results'] as $key => $value){
     // var_dump($data['type']); // タイプ
     echo "たかさ：".$data_detail['height']." m<br>"; // たかさ
     echo "おもさ：".$data_detail['weight']." kg<br>"; // おもさ
-    echo "<hr>";
 }
 echo "<div>";
 ?>
