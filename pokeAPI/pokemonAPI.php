@@ -18,7 +18,19 @@
 // 取得結果をループさせてポケモンの名前を表示する
 function view_poke(){
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-    $url = 'https://pokeapi.co/api/v2/pokemon/?limit=15&offset=0';
+    if(!isset($_POST["sel_page"])) {
+        $sel_page = 1;
+    } else {
+        $sel_page = $_POST["sel_page"];
+    }
+
+    $limit = 100;
+    $one_page = 20;
+    $page = $limit / $one_page; # ページ数を取得
+    $page = ceil($page); # 整数に直す。
+    $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
+
+    $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
     $response = file_get_contents($url);
     // レスポンスデータは JSON 形式なので、デコードして連想配列にする
     $data = json_decode($response, true);
@@ -54,8 +66,20 @@ function view_poke(){
             echo '</div>';
         echo '</div>';
     }
+    echo "<div class='paging'>";
+    for($i=1; $i<=$page; $i++) {
+        echo "
+        <form action='pokemonAPI.php' method='post'>
+        <input type='hidden' name='sel_page' value='{$i}'>
+        <input type='submit' class='page_btn' value='{$i}' class='paging'>
+        </form>
+        ";
+    }
+    echo "</div>";
 }
 view_poke();
+
+
 ?>
 
 </body>
