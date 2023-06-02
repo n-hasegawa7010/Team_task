@@ -1,0 +1,16 @@
+ログインページ関係のフォルダです。
+
+- login.php
+    ログイン画面を表示するphpファイルです。
+    login_nameとlogin_passwordを入力します。
+    ボタンを押すとPOSTで送信され、login_check.phpに遷移
+
+- login_check.php
+    login_nameとlogin_passwordを受け取り、データベースのnameとpasswordを比較するphpファイルです。
+    空白があれば、エラーを表示する。
+    一致するものがなければ、エラーを表示する。
+    一致していれば、../index/main.phpに遷移する。
+    sessin
+
+- login.css
+    login.phpを装飾するcssファイルです。

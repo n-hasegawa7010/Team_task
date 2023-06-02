@@ -1,0 +1,6 @@
+userテーブルのuser_idが、auto_incrementで指定されていることが必要です。
+もしうまく動かない場合は、下記を実行して下さい。
+
+1. phpMyAdminでuserテーブルをいったん削除してください。
+2.「SETUP_practice5.php」を実行してください。
+
