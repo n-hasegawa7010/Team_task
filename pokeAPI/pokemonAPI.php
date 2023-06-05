@@ -23,14 +23,19 @@ function view_poke(){
         $sel_page = $_POST["sel_page"];
     }
 
+    if(!isset($_POST["sel_onepage"])) {
+        $one_page = 10; // 1ページに表示するポケモンの数
+    } else {
+        $one_page = $_POST["sel_onepage"];
+    }
+
     $limit = 100; // 表示するポケモンの最大数
-    $one_page = 10; // 1ページに表示するポケモンの数
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
 
     echo "<div class='paging'>";
-    for($i=1; $i<=$page; $i++) {
+    for($i = 1; $i <= $page; $i++) {
         echo "
         <form action='pokemonAPI.php' method='post'>
             <input type='hidden' name='sel_page' value='{$i}'>
@@ -40,16 +45,19 @@ function view_poke(){
     }
     echo "</div>";
 
-    echo "
-    <div select_onepage>
-        <select name='limit' id=''>
-            <option value='10'>-</option>
-            <option value='10'>10</option>
-            <option value='20'>20</option>
-            <option value='50'>50</option>
-        </select>
+    echo '
+    <div class="select_onepage">
+        <form action="pokemonAPI.php" method="post">
+            <select name="sel_onepage">
+                <option value="10">-</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <input type="submit" value="変更">
+        </form>
     </div>
-    ";
+    ';
 
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
     $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
