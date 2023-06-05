@@ -130,6 +130,10 @@ function view_poke(){
                 echo '<div class = "Exp">';
                     echo "{$data_species['flavor_text_entries']['22']['flavor_text']}";
                 echo '</div>';
+
+                echo '<div class = "battery">';
+                    echo '<div class="battery_box"></div>';
+                echo '</div>';
             echo '</div>';
         echo '</div>';
     }

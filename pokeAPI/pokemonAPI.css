@@ -59,15 +59,20 @@ header h1{
 }
 
 /* ホバー時のカード裏面 */
-.poke_data:active .back {
+.poke_data:hover .back {
     transform: rotateY(-180deg);
+    cursor: pointer;
 }
 
 /* ホバー時のカード表面 */
-.poke_data:active .front {
+.poke_data:hover .front {
     transform: rotateY(0);
+    cursor: pointer;
 }
 
+.battery .battery_box{
+
+}
 
 .poke_img img{
     width: 150px;
