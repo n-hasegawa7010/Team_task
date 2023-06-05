@@ -23,8 +23,8 @@ function view_poke(){
         $sel_page = $_POST["sel_page"];
     }
 
-    $limit = 50; // 表示するポケモンの最大数
-    $one_page = 21; // 1ページに表示するポケモンの数
+    $limit = 100; // 表示するポケモンの最大数
+    $one_page = 24; // 1ページに表示するポケモンの数
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20

@@ -10,10 +10,10 @@ body{
 
 header h1{
     border-left: 8px solid black;
+    padding-left: 20px;
+    border-bottom: 2px  solid black;
+    padding-bottom: 5px;
 }
-
-
-
 
 .poke_data{
     float: left;
@@ -42,36 +42,38 @@ header h1{
     padding-left: 13px;
 }
 
-.button .btnA{
-    position: absolute;
-    top: 130px;
-    left: 168px;
-    background-color: #960037;
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-}
-
-.button .btnB{
-    position: absolute;
-    top: 145px;
-    left: 130px;
-    background-color: #960037;
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-}
-
 .paging{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .paging input{
+    margin-top: 10px;
     margin-left: 10px;
 }
 
 .paging input:hover{
     cursor: pointer;
+}
+
+.button .btnA,
+.button .btnB{
+    position: absolute;
+    background-color: #960037;
+    border:  3px solid #5c534d46;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+.button .btnA{
+    top: 130px;
+    left: 168px;
+}
+
+.button .btnB{
+    top: 145px;
+    left: 130px;
 }
 
 .line .lineA,
