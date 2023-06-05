@@ -42,7 +42,7 @@ header h1{
     border: 1.7px solid black;
     border-left: 50px solid #eee6df;
     border-right: 50px solid #eee6df;
-    background-color: #757303;
+    background-color: #647503;
 }
 
 .poke_ex{
@@ -105,7 +105,7 @@ header h1{
     background-color: #72675f;
     border-radius: 30%;
     width: 35px;
-    height: 2px;
+    height: 3px;
     transform: rotate(60deg);
 }
 
