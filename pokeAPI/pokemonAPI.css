@@ -15,6 +15,8 @@ header h1{
     padding-bottom: 5px;
 }
 
+
+/* ゲームボーイ全体の設定 */
 .poke_data{
     float: left;
     flex-wrap: wrap;
@@ -22,12 +24,17 @@ header h1{
     border: 2px solid black;
     border-radius: 5%;
     background-color: #eee6df;
-    width: 215px;
-    height: 300px;
+    width: 320px;
+    height: 430px;
     font-size: 20px;
     margin-left: 20px;
     margin-top: 20px;
     position: relative;
+}
+
+.poke_img img{
+    width: 150px;
+    /* height: 120px; */
 }
 
 .poke_img{
@@ -39,7 +46,13 @@ header h1{
 }
 
 .poke_ex{
-    padding-left: 13px;
+    padding-left: 20px;
+}
+
+.poke_ex .poke_name{
+    width: 120px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
 }
 
 .paging{
@@ -66,18 +79,19 @@ header h1{
     background-color: #960037;
     border:  3px solid #5c534d46;
     border-radius: 100%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 .button .btnA{
-    top: 130px;
-    left: 168px;
+    top: 180px;
+    left: 255px;
 }
 
 .button .btnB{
-    top: 145px;
-    left: 130px;
+    top: 190px;
+    left: 190px;
+    /* background-color: aqua; */
 }
 
 .line .lineA,
@@ -87,41 +101,25 @@ header h1{
     border: 2px solid #5c534d;
     background-color: #72675f;
     border-radius: 30%;
-    width: 25px;
+    width: 35px;
     height: 2px;
     transform: rotate(60deg);
 }
 
-.ab .A,
-.ab .B{
-    position: absolute;
-    color: #3b2b84;
-    font-size: 13px;
-    transform: rotate(335deg);
-    font-family: "Impact";
-}
-
-.ab .A{
-    top: 167px;
-    left: 190px;
-}
-
-.ab .B{
-    top: 182px;
-    left: 150px;
-}
-
 .line .lineA{
-    top: 260px;
-    left: 168px;
+    top: 385px;
+    left: 255px;
+    /* background-color: red; */
 }
 
 .line .lineB{
-    top: 255px;
-    left: 178px;
+    top: 375px;
+    left: 270px;
 }
 
 .line .lineC{
-    top: 250px;
-    left: 188px;
+    top: 365px;
+    left: 285px;
+    /* background-color: aqua; */
 }
+

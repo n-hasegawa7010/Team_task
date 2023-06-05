@@ -24,7 +24,7 @@ function view_poke(){
     }
 
     $limit = 100; // 表示するポケモンの最大数
-    $one_page = 24; // 1ページに表示するポケモンの数
+    $one_page = 10; // 1ページに表示するポケモンの数
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
@@ -69,11 +69,14 @@ function view_poke(){
 
             echo '<div class = "poke_ex">';
                 // 名前
-                echo "<p>".$value['name']."</p>";
+                echo "<p class = 'poke_name'>".$value['name']."</p>";
                 
-                // var_dump($data['type']); // タイプ
-                echo "<p>タイプ：".$data_detail['types']['0']['type']['name'].
-                " , ".$data_detail['types']['1']['type']['name']."</p>";
+                // タイプ
+                echo "<p>タイプ：";
+                foreach($data_detail['types'] as $key2 => $poke_type){
+                    echo $poke_type['type']['name']." ";
+                }
+                echo "</p>";
 
                 // たかさ
                 echo "<p>たかさ：".$data_detail['height']." m</p>";
