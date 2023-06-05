@@ -67,17 +67,13 @@ function view_poke(){
                 echo '<p class="lineC"></p>';
             echo '</div>';
 
-            // echo '<div class = "ab">';
-            //     echo '<p class="A">A</p>';
-            //     echo '<p class="B">B</p>';
-            // echo '</div>';
-
             echo '<div class = "poke_ex">';
                 // 名前
                 echo "<p>".$value['name']."</p>";
                 
                 // var_dump($data['type']); // タイプ
-                // echo "<p>".$data_detail['types']['name']."</p>";
+                echo "<p>タイプ：".$data_detail['types']['0']['type']['name'].
+                " , ".$data_detail['types']['1']['type']['name']."</p>";
 
                 // たかさ
                 echo "<p>たかさ：".$data_detail['height']." m</p>";
