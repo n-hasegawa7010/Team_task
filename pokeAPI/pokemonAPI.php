@@ -61,7 +61,6 @@ function view_poke(){
             echo '<div class = "button">';
                 echo '<p class = "btnA"></p>';
                 echo '<p class = "btnB"></p>';
-                echo '<p class="lineA"></p>';
             echo '</div>';
 
             echo '<div class = "line">';

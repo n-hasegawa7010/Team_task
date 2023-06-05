@@ -1,7 +1,19 @@
+html{
+    padding-bottom: 20px;
+}
+
 body{
     background-color: orange;
     font-family: "Comic Sans MS";
+    padding-bottom: 20px;
 }
+
+header h1{
+    border-left: 8px solid black;
+}
+
+
+
 
 .poke_data{
     float: left;
@@ -10,7 +22,7 @@ body{
     border: 2px solid black;
     border-radius: 5%;
     background-color: #eee6df;
-    width: 210px;
+    width: 215px;
     height: 300px;
     font-size: 20px;
     margin-left: 20px;
@@ -62,12 +74,29 @@ body{
     cursor: pointer;
 }
 
-.button .lineA{
+.line .lineA,
+.line .lineB,
+.line .lineC{
     position: absolute;
-    top: 150px;
-    left: 100px;
-    border: 2px solid aqua;
-    background-color: aqua;
-    width: 30px;
-    height: 30px;
+    border: 2px solid #5c534d;
+    background-color: #72675f;
+    border-radius: 30%;
+    width: 25px;
+    height: 2px;
+    transform: rotate(60deg);
+}
+
+.line .lineA{
+    top: 260px;
+    left: 168px;
+}
+
+.line .lineB{
+    top: 255px;
+    left: 178px;
+}
+
+.line .lineC{
+    top: 250px;
+    left: 188px;
 }
