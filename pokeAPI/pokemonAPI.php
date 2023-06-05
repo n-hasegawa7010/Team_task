@@ -40,6 +40,17 @@ function view_poke(){
     }
     echo "</div>";
 
+    echo "
+    <div select_onepage>
+        <select name='limit' id=''>
+            <option value='10'>-</option>
+            <option value='10'>10</option>
+            <option value='20'>20</option>
+            <option value='50'>50</option>
+        </select>
+    </div>
+    ";
+
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
     $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
     $response = file_get_contents($url);
