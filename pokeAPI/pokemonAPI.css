@@ -50,10 +50,14 @@ header h1{
 .paging input{
     margin-top: 10px;
     margin-left: 10px;
+    border: 1.5px solid black;
+    background-color: #eee6df;
 }
 
 .paging input:hover{
     cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(74, 74, 255);
 }
 
 .button .btnA,
