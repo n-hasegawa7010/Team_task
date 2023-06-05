@@ -24,7 +24,7 @@ header h1{
     border: 2px solid black;
     border-radius: 5%;
     background-color: #eee6df;
-    width: 320px;
+    width: 360px;
     height: 450px;
     font-size: 20px;
     margin-left: 20px;
@@ -107,47 +107,61 @@ header h1{
     background-color: #960037;
     border:  3px solid #5c534d46;
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .button .btnA{
-    top: 180px;
-    left: 260px;
+    top: 210px;
+    left: 280px;
 }
 
 .button .btnB{
-    top: 190px;
-    left: 200px;
+    top: 225px;
+    left: 210px;
     /* background-color: aqua; */
+}
+
+.button .btnA:hover,
+.button .btnB:hover{
+    cursor: pointer;
+    background-color: #6d0028;
+    border:  3px solid #00000046;
 }
 
 .line .lineA,
 .line .lineB,
-.line .lineC{
+.line .lineC,
+.line .lineD{
     position: absolute;
     border: 2px solid #5c534d;
     background-color: #72675f;
     border-radius: 30%;
-    width: 35px;
+    width: 40px;
     height: 3px;
     transform: rotate(60deg);
 }
 
 .line .lineA{
-    top: 400px;
-    left: 255px;
+    top: 402px;
+    left: 278px;
     /* background-color: red; */
 }
 
 .line .lineB{
-    top: 390px;
-    left: 270px;
+    top: 392px;
+    left: 293px;
 }
 
 .line .lineC{
-    top: 380px;
-    left: 285px;
+    top: 382px;
+    left: 308px;
+    /* background-color: aqua; */
+}
+
+.line .lineD{
+    top: 372px;
+    left: 323px;
     /* background-color: aqua; */
 }
 

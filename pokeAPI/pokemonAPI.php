@@ -83,14 +83,15 @@ function view_poke(){
             echo '</div>';
 
             echo '<div class = "button">';
-                echo '<p class = "btnA"></p>';
-                echo '<p class = "btnB"></p>';
+                echo '<input type = "button" class = "btnA"></p>';
+                echo '<input type = "button" class = "btnB"></p>';
             echo '</div>';
 
             echo '<div class = "line">';
                 echo '<p class="lineA"></p>';
                 echo '<p class="lineB"></p>';
                 echo '<p class="lineC"></p>';
+                echo '<p class="lineD"></p>';
             echo '</div>';
 
             // ポケモン説明：なまえ、タイプ、おもさ、たかさ
