@@ -86,6 +86,25 @@ header h1{
     transform: rotate(60deg);
 }
 
+.ab .A,
+.ab .B{
+    position: absolute;
+    color: #3b2b84;
+    font-size: 13px;
+    transform: rotate(335deg);
+    font-family: "Impact";
+}
+
+.ab .A{
+    top: 167px;
+    left: 190px;
+}
+
+.ab .B{
+    top: 182px;
+    left: 150px;
+}
+
 .line .lineA{
     top: 260px;
     left: 168px;
