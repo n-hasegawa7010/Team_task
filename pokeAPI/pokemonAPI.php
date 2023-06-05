@@ -46,8 +46,15 @@ function view_poke(){
     // レスポンスデータは JSON 形式なので、デコードして連想配列にする
     $data = json_decode($response, true);
     foreach($data['results'] as $key => $value){
+        // 詳細のurl取得
         $response_detail = file_get_contents($value['url']);
         $data_detail = json_decode($response_detail, true);
+
+        // speciesのurl取得
+        $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
+        $response_species = file_get_contents($url_species);
+        $data_species = json_decode($response_species, true);
+
 
         echo '<div class = "poke_data">';
             echo "<br>";
@@ -67,10 +74,15 @@ function view_poke(){
                 echo '<p class="lineC"></p>';
             echo '</div>';
 
+            // ポケモン説明：なまえ、タイプ、おもさ、たかさ
             echo '<div class = "poke_ex">';
                 // 名前
-                echo "<p class = 'poke_name'>".$value['name']."</p>";
-                
+                echo "<p class = 'poke_name'>";
+                    echo "No."."{$data_detail['id']}"."<br>"; // ポケモン_id
+                    echo "{$data_species['names']['0']['name']}"; // 日本語のなまえ
+                    // " ({$value['name']})". //英語のなまえ
+                echo "</p>";
+
                 // タイプ
                 echo "<p>タイプ：";
                 foreach($data_detail['types'] as $key2 => $poke_type){

@@ -25,7 +25,7 @@ header h1{
     border-radius: 5%;
     background-color: #eee6df;
     width: 320px;
-    height: 430px;
+    height: 450px;
     font-size: 20px;
     margin-left: 20px;
     margin-top: 20px;
@@ -42,7 +42,7 @@ header h1{
     border: 1.7px solid black;
     border-left: 50px solid #eee6df;
     border-right: 50px solid #eee6df;
-    background-color: #647503;
+    background-color: #757303;
 }
 
 .poke_ex{
@@ -51,7 +51,7 @@ header h1{
 
 .poke_ex .poke_name{
     width: 120px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border-bottom: 2px solid black;
 }
 
@@ -110,18 +110,18 @@ header h1{
 }
 
 .line .lineA{
-    top: 385px;
+    top: 400px;
     left: 255px;
     /* background-color: red; */
 }
 
 .line .lineB{
-    top: 375px;
+    top: 390px;
     left: 270px;
 }
 
 .line .lineC{
-    top: 365px;
+    top: 380px;
     left: 285px;
     /* background-color: aqua; */
 }
