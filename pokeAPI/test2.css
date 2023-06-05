@@ -1,0 +1,205 @@
+html{
+    padding-bottom: 20px;
+}
+
+body{
+    background-color: orange;
+    font-family: "Comic Sans MS";
+    padding-bottom: 20px;
+}
+
+header h1{
+    border-left: 8px solid black;
+    padding-left: 20px;
+    border-bottom: 2px  solid black;
+    padding-bottom: 5px;
+}
+
+
+/* ゲームボーイ全体の設定 */
+.poke_data{
+    float: left;
+    flex-wrap: wrap;
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: #eee6df;
+    width: 360px;
+    height: 450px;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.poke_data::before {
+    content: "";
+    display: block;
+}
+
+.poke_data .back,
+.poke_data .front {
+    transition: all 0.6s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.Exp{
+    text-align: center;
+    margin: 30px 10px 0px 10px;
+}
+
+/* カード表面のスタイル */
+.poke_data .front {
+    transform: rotateY(-180deg);
+}
+
+/* ホバー時のカード裏面 */
+.poke_data:hover .back {
+    transform: rotateY(-180deg);
+    cursor: pointer;
+}
+
+/* ホバー時のカード表面 */
+.poke_data:hover .front {
+    transform: rotateY(0);
+    cursor: pointer;
+}
+
+
+.poke_img img{
+    width: 150px;
+    /* height: 120px; */
+}
+
+.poke_img{
+    text-align: center;
+    border: 1.7px solid black;
+    border-left: 50px solid #eee6df;
+    border-right: 50px solid #eee6df;
+    background-color: #647503;
+}
+
+.poke_ex{
+    padding-left: 20px;
+}
+
+.poke_ex .poke_name{
+    width: 120px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+.paging{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.paging input{
+    width: 40px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1.5px solid black;
+    background-color: #eee6df;
+    border-radius: 20%;
+}
+
+.paging input:hover{
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(74, 74, 255);
+}
+
+.select_onepage{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.select_onepage select{
+    width: 40px;
+    height: 25px;
+    background-color: #eee6df;
+    border-radius: 20%;
+}
+
+.select_onepage input{
+    width: 40px;
+    height: 25px;
+    background-color: #eee6df;
+    border-radius: 20%;
+}
+
+.select_onepage input:hover{
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(74, 74, 255);
+}
+
+.button .btnA,
+.button .btnB{
+    position: absolute;
+    background-color: #960037;
+    border:  3px solid #5c534d46;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.button .btnA{
+    top: 210px;
+    left: 280px;
+}
+
+.button .btnB{
+    top: 225px;
+    left: 210px;
+    /* background-color: aqua; */
+}
+
+.button .btnA:hover,
+.button .btnB:hover{
+    cursor: pointer;
+    background-color: #6d0028;
+    border:  3px solid #00000046;
+}
+
+.line .lineA,
+.line .lineB,
+.line .lineC,
+.line .lineD{
+    position: absolute;
+    border: 2px solid #5c534d;
+    background-color: #72675f;
+    border-radius: 30%;
+    width: 40px;
+    height: 3px;
+    transform: rotate(60deg);
+}
+
+.line .lineA{
+    top: 402px;
+    left: 278px;
+    /* background-color: red; */
+}
+
+.line .lineB{
+    top: 392px;
+    left: 293px;
+}
+
+.line .lineC{
+    top: 382px;
+    left: 308px;
+    /* background-color: aqua; */
+}
+
+.line .lineD{
+    top: 372px;
+    left: 323px;
+    /* background-color: aqua; */
+}
