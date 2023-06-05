@@ -67,10 +67,10 @@ function view_poke(){
                 echo '<p class="lineC"></p>';
             echo '</div>';
 
-            echo '<div class = "ab">';
-                echo '<p class="A">A</p>';
-                echo '<p class="B">B</p>';
-            echo '</div>';
+            // echo '<div class = "ab">';
+            //     echo '<p class="A">A</p>';
+            //     echo '<p class="B">B</p>';
+            // echo '</div>';
 
             echo '<div class = "poke_ex">';
                 // 名前
