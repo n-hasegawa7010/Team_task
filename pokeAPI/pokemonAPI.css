@@ -39,9 +39,9 @@ header h1{
 
 .poke_img{
     text-align: center;
-    border: 1.5px solid black;
-    border-left: 15px solid #eee6df;
-    border-right: 15px solid #eee6df;
+    border: 1.7px solid black;
+    border-left: 50px solid #eee6df;
+    border-right: 50px solid #eee6df;
     background-color: #647503;
 }
 
