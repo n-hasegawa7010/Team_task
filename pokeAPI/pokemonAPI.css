@@ -107,7 +107,7 @@ header h1{
     border-radius: 20%;
 }
 
-.paging input:{
+.paging input:hover{
     cursor: pointer;
     color: whitesmoke;
     background-color: rgb(74, 74, 255);
