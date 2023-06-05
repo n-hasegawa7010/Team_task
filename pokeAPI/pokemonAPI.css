@@ -71,7 +71,24 @@ header h1{
 }
 
 .battery .battery_box{
+    width: 250px;
+    height: 80px;
+    margin-top: 15px;
+    position: absolute;
+    border: 2px solid #5c534d;
+    left: 53px;
+}
 
+.battery .pull{
+    width: 80px;
+    height: 10px;
+    margin-top: 15px;
+    position: absolute;
+    border-right: 8px solid #575757;
+    border-left: 8px solid #575757;
+    border-bottom: 8px solid #575757;
+    background-color: #eee6df;
+    left: 128px;
 }
 
 .poke_img img{

@@ -132,7 +132,8 @@ function view_poke(){
                 echo '</div>';
 
                 echo '<div class = "battery">';
-                    echo '<div class="battery_box"></div>';
+                    echo '<div class = "pull"></div>';
+                    echo '<div class = "battery_box"></div>';
                 echo '</div>';
             echo '</div>';
         echo '</div>';
