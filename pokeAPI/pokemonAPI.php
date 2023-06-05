@@ -24,8 +24,8 @@ function view_poke(){
         $sel_page = $_POST["sel_page"];
     }
 
-    $limit = 100;
-    $one_page = 21;
+    $limit = 50; // 表示するポケモンの最大数
+    $one_page = 21; // 1ページに表示するポケモンの数
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
@@ -34,8 +34,8 @@ function view_poke(){
     for($i=1; $i<=$page; $i++) {
         echo "
         <form action='pokemonAPI.php' method='post'>
-        <input type='hidden' name='sel_page' value='{$i}'>
-        <input type='submit' class='page_btn' value='{$i}' class='paging'>
+            <input type='hidden' name='sel_page' value='{$i}'>
+            <input type='submit' class='page_btn' value='{$i}' class='paging'>
         </form>
         ";
     }
@@ -59,8 +59,15 @@ function view_poke(){
             echo '</div>';
 
             echo '<div class = "button">';
-                echo '<p class = "btnA">　</p>';
-                echo '<p class = "btnB">　</p>';
+                echo '<p class = "btnA"></p>';
+                echo '<p class = "btnB"></p>';
+                echo '<p class="lineA"></p>';
+            echo '</div>';
+
+            echo '<div class = "line">';
+                echo '<p class="lineA"></p>';
+                echo '<p class="lineB"></p>';
+                echo '<p class="lineC"></p>';
             echo '</div>';
 
             echo '<div class = "poke_ex">';

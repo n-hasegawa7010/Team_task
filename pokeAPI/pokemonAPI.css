@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(255, 123, 0);
+    background-color: orange;
     font-family: "Comic Sans MS";
 }
 
@@ -52,4 +52,22 @@ body{
 
 .paging{
     display: flex;
+}
+
+.paging input{
+    margin-left: 10px;
+}
+
+.paging input:hover{
+    cursor: pointer;
+}
+
+.button .lineA{
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    border: 2px solid aqua;
+    background-color: aqua;
+    width: 30px;
+    height: 30px;
 }
