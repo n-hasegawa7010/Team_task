@@ -32,6 +32,43 @@ header h1{
     position: relative;
 }
 
+.poke_data::before {
+    content: "";
+    display: block;
+}
+
+.poke_data .back,
+.poke_data .front {
+    transition: all 0.6s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.Exp{
+    text-align: center;
+    margin: 30px 10px 0px 10px;
+}
+
+/* カード表面のスタイル */
+.poke_data .front {
+    transform: rotateY(-180deg);
+}
+
+/* ホバー時のカード裏面 */
+.poke_data:hover .back {
+    transform: rotateY(-180deg);
+}
+
+/* ホバー時のカード表面 */
+.poke_data:hover .front {
+    transform: rotateY(0);
+}
+
+
 .poke_img img{
     width: 150px;
     /* height: 120px; */
