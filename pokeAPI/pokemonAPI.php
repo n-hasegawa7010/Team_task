@@ -74,47 +74,56 @@ function view_poke(){
         $response_species = file_get_contents($url_species);
         $data_species = json_decode($response_species, true);
 
-
         echo '<div class = "poke_data">';
-            echo "<br>";
-            echo '<div class = "poke_img">';
-                echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像'"."<br>"; // デフォルト正面
-                echo "<br>";
+            echo '<div class="card">';
+                // 裏面のコンテンツ
+                echo '<div class="back">';
+                echo '<img src="path/sample.jpg" alt="" />';
             echo '</div>';
 
-            echo '<div class = "button">';
-                echo '<input type = "button" class = "btnA"></p>';
-                echo '<input type = "button" class = "btnB"></p>';
-            echo '</div>';
+                    // 表面のコンテンツ
+            echo '<div class="front">';
+                    echo "<br>";
+                    echo '<div class = "poke_img">';
+                        echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像'"."<br>"; // デフォルト正面
+                        echo "<br>";
+                    echo '</div>';
 
-            echo '<div class = "line">';
-                echo '<p class="lineA"></p>';
-                echo '<p class="lineB"></p>';
-                echo '<p class="lineC"></p>';
-                echo '<p class="lineD"></p>';
-            echo '</div>';
+                    echo '<div class = "button">';
+                        echo '<input type = "button" class = "btnA"></p>';
+                        echo '<input type = "button" class = "btnB"></p>';
+                    echo '</div>';
 
-            // ポケモン説明：なまえ、タイプ、おもさ、たかさ
-            echo '<div class = "poke_ex">';
-                // 名前
-                echo "<p class = 'poke_name'>";
-                    echo "No."."{$data_detail['id']}"."<br>"; // ポケモン_id
-                    echo "{$data_species['names']['0']['name']}"; // 日本語のなまえ
-                    // " ({$value['name']})". //英語のなまえ
-                echo "</p>";
+                    echo '<div class = "line">';
+                        echo '<p class="lineA"></p>';
+                        echo '<p class="lineB"></p>';
+                        echo '<p class="lineC"></p>';
+                        echo '<p class="lineD"></p>';
+                    echo '</div>';
 
-                // タイプ
-                echo "<p>タイプ：";
-                foreach($data_detail['types'] as $key2 => $poke_type){
-                    echo $poke_type['type']['name']." ";
-                }
-                echo "</p>";
+                    // ポケモン説明：なまえ、タイプ、おもさ、たかさ
+                    echo '<div class = "poke_ex">';
+                        // 名前
+                        echo "<p class = 'poke_name'>";
+                            echo "No."."{$data_detail['id']}"."<br>"; // ポケモン_id
+                            echo "{$data_species['names']['0']['name']}"; // 日本語のなまえ
+                            // " ({$value['name']})". //英語のなまえ
+                        echo "</p>";
 
-                // たかさ
-                echo "<p>たかさ：".$data_detail['height']." m</p>";
-                
-                // おもさ
-                echo "<p>おもさ：".$data_detail['weight']." kg</p>";
+                        // タイプ
+                        echo "<p>タイプ：";
+                        foreach($data_detail['types'] as $key2 => $poke_type){
+                            echo $poke_type['type']['name']." ";
+                        }
+                        echo "</p>";
+
+                        // たかさ
+                        echo "<p>たかさ：".$data_detail['height']." m</p>";
+                        
+                        // おもさ
+                        echo "<p>おもさ：".$data_detail['weight']." kg</p>";
+                    echo '</div>';
+                echo '</div>';
             echo '</div>';
         echo '</div>';
     }
