@@ -24,7 +24,7 @@ header h1{
     border: 2px solid black;
     border-radius: 5%;
     background-color: #eee6df;
-    width: 360px;
+    width: 330px;
     height: 450px;
     font-size: 20px;
     margin-left: 20px;
@@ -70,13 +70,17 @@ header h1{
     cursor: pointer;
 }
 
+.Exp{
+    font-size: 15px;
+}
+
 .battery .battery_box{
     width: 250px;
-    height: 80px;
+    height: 120px;
     margin-top: 15px;
     position: absolute;
     border: 2px solid #5c534d;
-    left: 53px;
+    left: 40px;
 }
 
 .battery .pull{
@@ -88,7 +92,7 @@ header h1{
     border-left: 8px solid #575757;
     border-bottom: 8px solid #575757;
     background-color: #eee6df;
-    left: 128px;
+    left: 115px;
 }
 
 .poke_img img{
@@ -172,12 +176,12 @@ header h1{
 
 .button .btnA{
     top: 210px;
-    left: 280px;
+    left: 255px;
 }
 
 .button .btnB{
     top: 225px;
-    left: 210px;
+    left: 180px;
     /* background-color: aqua; */
 }
 
@@ -203,23 +207,24 @@ header h1{
 
 .line .lineA{
     top: 402px;
-    left: 278px;
+    left: 245px;
     /* background-color: red; */
 }
 
 .line .lineB{
     top: 392px;
-    left: 293px;
+    left: 260px;
+    /* background-color: goldenrod; */
 }
 
 .line .lineC{
     top: 382px;
-    left: 308px;
+    left: 275px;
     /* background-color: aqua; */
 }
 
 .line .lineD{
     top: 372px;
-    left: 323px;
-    /* background-color: aqua; */
+    left: 290px;
+    /* background-color: green; */
 }
