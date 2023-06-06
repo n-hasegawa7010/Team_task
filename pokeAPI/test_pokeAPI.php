@@ -29,7 +29,7 @@ function view_poke(){
         $one_page = $_POST["sel_onepage"];
     }
 
-    $limit = 100; // 表示するポケモンの最大数
+    $limit = 1; // 表示するポケモンの最大数
     $page = $limit / $one_page; # ページ数を取得
     $page = ceil($page); # 整数に直す。
     $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
@@ -60,7 +60,7 @@ function view_poke(){
     ';
 
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-    $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
+    $url = "https://pokeapi.co/api/v2/pokemon/?limit=1&offset=0";
     $response = file_get_contents($url);
     // レスポンスデータは JSON 形式なので、デコードして連想配列にする
     $data = json_decode($response, true);
@@ -70,7 +70,7 @@ function view_poke(){
         $data_detail = json_decode($response_detail, true);
 
         // speciesのurl取得
-        $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
+        $url_species = "https://pokeapi.co/api/v2/pokemon-species/1/";
         $response_species = file_get_contents($url_species);
         $data_species = json_decode($response_species, true);
 
@@ -83,10 +83,18 @@ function view_poke(){
                     echo "<br>";
                 echo '</div>';
 
-                echo '<div class = "button">';
-                    echo '<input type = "button" class = "btnA"></p>';
-                    echo '<input type = "button" class = "btnB"></p>';
-                echo '</div>';
+                echo '
+                <div class = "checkbox">
+                    <input type="checkbox" name="push_btn" id="check_btn">
+                    <label for="check_btn" class="btnA"><span></span></label>
+                    <label for="check_btn" class="btnB"><span></span></label>
+                </div>
+                ';
+
+                // echo '<div class = "button">';
+                //     echo '<input type = "button" class = "btnA"></p>';
+                //     echo '<input type = "button" class = "btnB"></p>';
+                // echo '</div>';
 
                 echo '<div class = "line">';
                     echo '<p class="lineA"></p>';
