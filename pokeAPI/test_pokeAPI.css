@@ -59,16 +59,16 @@ header h1{
 }
 
 /* ホバー時のカード裏面 */
-/* .poke_data:hover .back {
+#check_btn:checked ~ .back {
     transform: rotateY(-180deg);
     cursor: pointer;
-} */
+}
 
 /* ホバー時のカード表面 */
-/* .poke_data:hover .front {
+#check_btn:checked ~ .front {
     transform: rotateY(0);
     cursor: pointer;
-} */
+}
 
 
 .poke_img img{
@@ -138,6 +138,10 @@ header h1{
     cursor: pointer;
     color: whitesmoke;
     background-color: rgb(74, 74, 255);
+}
+
+#check_btn{
+    display: none;
 }
 
 .checkbox .btnA,
