@@ -59,13 +59,13 @@ header h1{
 }
 
 /* ホバー時のカード裏面 */
-.poke_data:hover .back {
+#check_btn:checked ~ .back {
     transform: rotateY(-180deg);
     cursor: pointer;
 }
 
 /* ホバー時のカード表面 */
-.poke_data:hover .front {
+#check_btn:checked ~ .front {
     transform: rotateY(0);
     cursor: pointer;
 }
@@ -140,8 +140,12 @@ header h1{
     background-color: rgb(74, 74, 255);
 }
 
-.button .btnA,
-.button .btnB{
+#check_btn{
+    display: none;
+}
+
+.checkbox .btnA,
+.checkbox .btnB{
     position: absolute;
     background-color: #960037;
     border:  3px solid #5c534d46;
@@ -150,19 +154,19 @@ header h1{
     height: 50px;
 }
 
-.button .btnA{
+.checkbox .btnA{
     top: 210px;
     left: 280px;
 }
 
-.button .btnB{
+.checkbox .btnB{
     top: 225px;
     left: 210px;
     /* background-color: aqua; */
 }
 
-.button .btnA:hover,
-.button .btnB:hover{
+.checkbox .btnA:hover,
+.checkbox .btnB:hover{
     cursor: pointer;
     background-color: #6d0028;
     border:  3px solid #00000046;
