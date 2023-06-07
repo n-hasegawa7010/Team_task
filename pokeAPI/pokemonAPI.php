@@ -42,7 +42,7 @@ if(!isset($_POST["sel_onepage"])) {
     $one_page = $_POST["sel_onepage"];
 }
 
-$limit = 100; // 表示するポケモンの最大数
+$limit = 200; // 表示するポケモンの最大数
 $page = $limit / $one_page; # ページ数を取得
 $page = ceil($page); # 整数に直す。
 $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
@@ -51,7 +51,7 @@ function getPokeAPIItems() {
     global $one_page;
     global $now_page;
     global $sel_page;
-    $res = getCacheContents("https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}", "./cache/pokeAPI_caches_{$sel_page}page");
+    $res = getCacheContents("https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}", "./cache/pokeAPI_caches_{$one_page}_{$now_page}_{$sel_page}page");
     return json_decode($res,true);
 }
 
@@ -67,7 +67,7 @@ for($i = 1; $i <= $page; $i++) {
 }
 echo "</div>";
 
-echo '
+echo <<< _ONEPAGE_
 <div class="select_onepage">
     <form action="pokemonAPI.php" method="post">
         <select name="sel_onepage">
@@ -79,7 +79,7 @@ echo '
         <input type="submit" value="変更">
     </form>
 </div>
-';
+_ONEPAGE_;
 
 /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
 // $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
@@ -161,7 +161,7 @@ foreach($data['results'] as $key => $value){
             echo '</div>';
 
             echo '<div class = "Exp">';
-                echo "{$data_species['flavor_text_entries']['82']['flavor_text']}";
+                echo "{$data_species['flavor_text_entries']['72']['flavor_text']}";
             echo '</div>';
 
             echo '<div class = "battery">';
