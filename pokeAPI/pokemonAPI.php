@@ -143,10 +143,12 @@ foreach($data['results'] as $key => $value){
                 echo "</p>";
 
                 // たかさ
-                echo "<p>たかさ：".$data_detail['height']." m</p>";
+                $height = $data_detail['height'] / 10;
+                echo "<p>たかさ：{$height} m</p>";
                 
                 // おもさ
-                echo "<p>おもさ：".$data_detail['weight']." kg</p>";
+                $weight = $data_detail['weight'] / 10;
+                echo "<p>おもさ：{$weight} kg</p>";
             echo '</div>';
         echo '</div>';
 
@@ -159,7 +161,7 @@ foreach($data['results'] as $key => $value){
             echo '</div>';
 
             echo '<div class = "Exp">';
-                echo "{$data_species['flavor_text_entries']['22']['flavor_text']}";
+                echo "{$data_species['flavor_text_entries']['82']['flavor_text']}";
             echo '</div>';
 
             echo '<div class = "battery">';
