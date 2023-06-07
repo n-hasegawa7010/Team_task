@@ -1,0 +1,5 @@
+test
+*.txt
+InoventoryControl/CSV
+*.csv
+*.pdf

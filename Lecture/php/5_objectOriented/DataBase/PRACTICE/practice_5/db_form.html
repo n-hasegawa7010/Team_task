@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>フォーム</title>
+</head>
+
+<body>
+	<form action="./tmpl/send.php" method="post">
+		<h2>ご登録</h2>
+		<table border="1">
+			<tr>
+				<td>名前</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>電話番号</td>
+				<td><input type="text" name="tel"></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td><input type="text" name="email"></td>
+			</tr>
+			<tr>
+				<td>コース</td>
+				<td>
+					<select name="class[]" id="class">
+						<option value="Normal">Normal</option>
+						<option value="Beginner">Beginner</option>
+						<option value="Professional">Professional</option>
+					</select>
+					<!-- select name"ここには[]をつけるとよい" -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="送信">
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="mode" value="post">
+	</form>
+</body>
+
+</html>
