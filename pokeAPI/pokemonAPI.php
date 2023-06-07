@@ -15,6 +15,24 @@
 </header>
 <?php
 
+// file_get_contentsの結果をキャッシュしつつ返す
+function getCacheContents($url, $cachePath, $cacheLimit = 86400) {
+    if(file_exists($cachePath) && filemtime($cachePath) + $cacheLimit > time()) {
+    // キャッシュ有効期間内なのでキャッシュの内容を返す
+    return file_get_contents($cachePath);
+} else {
+    // キャッシュがないか、期限切れなので取得しなおす
+    $data = file_get_contents($url);
+    file_put_contents($cachePath, $data, LOCK_EX); // キャッシュに保存
+    return $data;
+}
+}
+
+// function getQiitaItems() {
+//     $res = getCacheContents('https://qiita.com/api/v2/users/laineus/items?page=1&per_page=20', './cache');
+//     return json_decode($res);
+// }
+
 // 取得結果をループさせてポケモンの名前を表示する
 function view_poke(){
     if(!isset($_POST["sel_page"])) {
@@ -62,6 +80,7 @@ function view_poke(){
     /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
     $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
     $response = file_get_contents($url);
+
     // レスポンスデータは JSON 形式なので、デコードして連想配列にする
     $data = json_decode($response, true);
     foreach($data['results'] as $key => $value){
