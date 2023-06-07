@@ -10,9 +10,11 @@ $data = json_decode($response, true);
 // print("</pre>");
 // echo "<hr>";
 
+$i = 1;
+
 
 /** PokeAPI のデータを取得する(URL末尾の数字はポケモン図鑑のID) */
-$url = 'https://pokeapi.co/api/v2/pokemon/1/';
+$url = "https://pokeapi.co/api/v2/pokemon/{$i}/";
 $response = file_get_contents($url);
 // レスポンスデータは JSON 形式なので、デコードして連想配列にする
 $data = json_decode($response, true);
@@ -21,27 +23,28 @@ $data = json_decode($response, true);
 // var_dump($data);
 // print("</pre>");
 
-// print("<pre>");
+print("<pre>");
 // var_dump($data['name']); // 名前
 // echo "<hr>";
 // var_dump($data['id']);
 // var_dump($data['types']['0']['type']['name']);
 // var_dump($data['types']['1']['type']['name']);
-var_dump($data['sprites']['front_default']); // 正面向きのイメージ
+// var_dump($data['sprites']['front_default']); // 正面向きのイメージ
 // var_dump($data['height']); // たかさ
 // var_dump($data['weight']); // おもさ
-// print("</pre>");
+print("</pre>");
 
-$url = 'https://pokeapi.co/api/v2/pokemon-species/1/';
+$url = "https://pokeapi.co/api/v2/pokemon-species/{$i}/";
 $response = file_get_contents($url);
 // レスポンスデータは JSON 形式なので、デコードして連想配列にする
 $data = json_decode($response, true);
 
-echo "ポケモン説明";
-print("<pre>");
-var_dump($data);
-print("</pre>");
+// echo "ポケモン説明";
+// print("<pre>");
+// var_dump($data);
+// print("</pre>");
 
+echo "ポケモン説明文";
 echo "<hr>";
 print("<pre>");
 // // var_dump($data['name']); // 名前
