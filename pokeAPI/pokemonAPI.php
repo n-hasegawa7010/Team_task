@@ -11,7 +11,13 @@
 <body>
 
 <header>
-    <h1>ポケモン図鑑</h1>
+    <h1>ポケモン図鑑
+        <?php
+            $res_pika = getCacheContents("https://pokeapi.co/api/v2/pokemon/25/", "./cache/pokeAPI_caches_pikachu");
+            $data_pika = json_decode($res_pika,true);
+            echo "<img src={$data_pika['sprites']['front_default']} alt='ピカチュウ画像_表'";
+        ?>
+    </h1>
 </header>
 <?php
 
@@ -83,20 +89,11 @@ echo <<< _ONEPAGE_
 _ONEPAGE_;
 
 /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-// $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
-// $response = file_get_contents($url);
-
-// レスポンスデータは JSON 形式なので、デコードして連想配列にする
-// $data = json_decode($response, true);
 $data = getPokeAPIItems();
 foreach($data['results'] as $key => $value){
     // 詳細のurl取得
     $res_detail = getCacheContents("{$value['url']}", "./cache/pokeAPI_caches_detail_{$value['name']}");
     $data_detail = json_decode($res_detail,true);
-
-    // 詳細のurl取得
-    // $response_detail = file_get_contents($value['url']);
-    // $data_detail = json_decode($response_detail, true);
 
     // speciesのurl取得
     $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
@@ -162,7 +159,11 @@ foreach($data['results'] as $key => $value){
             echo '</div>';
 
             echo '<div class = "Exp">';
-                echo "{$data_species['flavor_text_entries']['72']['flavor_text']}";
+                if(!isset($data_species['flavor_text_entries']['72']['flavor_text'])){
+                    echo "Sorry Not Found.";
+                }else{
+                    echo "{$data_species['flavor_text_entries']['72']['flavor_text']}";
+                }
             echo '</div>';
 
             echo '<div class = "battery">';

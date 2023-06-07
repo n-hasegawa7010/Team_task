@@ -8,11 +8,22 @@ body{
     padding-bottom: 20px;
 }
 
+header{
+    position: relative;
+}
+
 header h1{
     border-left: 8px solid black;
     padding-left: 20px;
     border-bottom: 2px  solid black;
     padding-bottom: 5px;
+}
+
+header img{
+    position: absolute;
+    left: 200px;
+    top: -34px;
+    width: 110px;
 }
 
 
@@ -151,7 +162,7 @@ header h1{
 }
 
 .select_onepage input{
-    width: 40px;
+    width: auto;
     height: 25px;
     background-color: #eee6df;
     border-radius: 20%;
