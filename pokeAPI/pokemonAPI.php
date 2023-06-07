@@ -72,10 +72,10 @@ echo <<< _ONEPAGE_
 <div class="select_onepage">
     <form action="pokemonAPI.php" method="post">
         <select name="sel_onepage">
-            <option value="{$one_page}">現在{$one_page}匹表示</option>
-            <option value="10">10匹表示</option>
-            <option value="20">20匹表示</option>
-            <option value="50">50匹表示</option>
+            <option value="{$one_page}">現在 {$one_page}匹 表示</option>
+            <option value="10">10匹 表示</option>
+            <option value="20">20匹 表示</option>
+            <option value="50">50匹 表示</option>
         </select>
         <input type="submit" value="変更">
     </form>
