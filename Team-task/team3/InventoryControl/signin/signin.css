@@ -1,0 +1,79 @@
+body {
+  background-color: rgb(215, 215, 215);
+}
+
+.name_ja,
+.pass_ja {
+  color: black;
+}
+
+main {
+  padding: 20px 0px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  text-align: center;
+  border: 5px solid gray;
+  border-radius: 5%;
+}
+
+main h1 {
+  color: black;
+  font-weight: 500;
+}
+
+/* UserID,Password */
+main input[type="text"],
+main input[type="password"] {
+  border: 0;
+  display: block;
+  margin: 20px auto;
+  background-color: #f0f8ff;
+  border: 2px solid black;
+  padding: 10px 10px;
+  width: 200px;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.5s;
+  text-align: center;
+}
+
+main input[type="text"]:focus,
+main input[type="password"]:focus {
+  width: 250px;
+  border-color: rgb(0, 102, 255);
+}
+
+main input[type="submit"],
+main button {
+  border: 0;
+  display: block;
+  margin: 20px auto;
+  background-color: black;
+  border: 2px solid #f0f8ff;
+  padding: 15px 10px;
+  width: 200px;
+  outline: none;
+  color: #f0f8ff;
+  border-radius: 25px;
+  transition: 0.25s;
+  text-align: center;
+  cursor: pointer;
+}
+
+main .signin_btn:hover {
+  background-color: rgb(0, 102, 255);
+  border: 2px solid black;
+}
+
+main .back_btn:hover {
+  background-color: gray;
+  border: 2px solid black;
+}
+
+.error_message p {
+  color: rgb(255, 60, 60);
+}

@@ -1,0 +1,85 @@
+﻿//テーブルの作成１
+CREATE TABLE user (
+    user_id	INT,
+    name	VARCHAR(100),
+    tel	VARCHAR(100),
+    email	VARCHAR(100),
+    course	VARCHAR(100)
+    )
+
+//テーブルの作成２
+$SQL = <<<_SQL_
+CREATE TABLE user (
+    user_id	INT	PRIMARY KEY	AUTO_INCREMENT,
+    name	VARCHAR(100),
+    tel	VARCHAR(100),
+    email	VARCHAR(100),
+    course	VARCHAR(100)
+    )
+_SQL_;
+
+
+//データの挿入1
+INSERT INTO user (
+	user_id,
+	name,
+	tel,
+	email,
+	course
+)
+VALUES (
+	1,
+	' 山田太郎',
+	'012-3456-7890',
+	'yamada@mail.com',
+	'Beginner'
+)
+
+
+//データの挿入2
+INSERT INTO user VALUES(2, '山田二郎','012-3456-7890', 'jiro@example.com','Normal')
+
+
+//全てのカラムからデータを抽出する
+SELECT * FROM user
+
+
+//特定のカラムからデータを抽出する
+SELECT name,tel FROM user
+
+
+//条件を指定してデータを抽出する
+SELECT * FROM user WHERE user_id=1
+
+
+//ワイルドカードによるあいまい検索
+SELECT * FROM user WHERE name LIKE "田中%"
+
+
+//データの更新
+UPDATE user SET name = " 山田太郎" WHERE user_id=3
+
+
+//データの削除
+DELETE FROM user WHERE user_id >=3 AND user_id < 5
+
+
+//内部結合
+SELECT * FROM user INNER JOIN info ON user.course = info.course
+
+
+//外部結合
+SELECT * FROM user LEFT JOIN info ON user.course = info.course
+SELECT * FROM user RIGHT JOIN info ON user.course = info.course
+
+
+//カラムの追加
+ALTER TABLE user ADD address varchar(100) DEFAULT none
+
+
+//カラムの変更
+ALTER TABLE user CHANGE address juusho varchar(100)
+
+
+//カラムの削除
+ALTER TABLE user DROP juusho

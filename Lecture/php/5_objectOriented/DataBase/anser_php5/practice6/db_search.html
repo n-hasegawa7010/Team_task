@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>ユーザー情報</title>
+</head>
+<body>
+<form method="POST" action="db_search.php">
+	<table border=1>
+		<tr>
+			<td>id</td>
+			<td><input name="user_id" type="text" value=""></td>
+	</tr>
+	<tr>
+		<td>名前</td>
+		<td><input name="name" type="text" value=""></td>
+	</tr>
+	<tr>
+		<td>電話番号</td>
+		<td><input name="tel" type="text" value=""></td>
+	</tr>
+	<tr>
+		<td>メールアドレス</td>
+		<td><input name="email" type="text" value=""></td>
+	</tr>
+	<tr>
+		<td>コース</td>
+		<td>
+			<select name="course[]">
+				<option value="">-</option>
+				<option value="Beginner">Beginner</option>
+				<option value="Normal">Normal</option>
+				<option value="Professional">Professional</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="検索" name="submit"></td>
+	</tr>
+</table>
+<input type="hidden" name="mode" value="search">
+</form>
+</body>
+</html>
