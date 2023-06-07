@@ -136,8 +136,60 @@ foreach($data['results'] as $key => $value){
                 // タイプ
                 echo "<p>タイプ：";
                 foreach($data_detail['types'] as $key2 => $poke_type){
-                    echo $poke_type['type']['name']." ";
+                    switch ($poke_type['type']['name']) {
+                        case "normal":
+                            echo "ノーマル ";
+                            break;
+                        case "fire":
+                            echo "ほのお ";
+                            break;
+                        case "water":
+                            echo "みず ";
+                            break;
+                        case "grass":
+                            echo "くさ ";
+                            break;
+                        case "flying":
+                            echo "ひこう ";
+                            break;
+                        case "electric":
+                            echo "でんき ";
+                            break;
+                        case "ice":
+                            echo "こおり ";
+                            break;
+                        case "fighting":
+                            echo "かくとう ";
+                            break;
+                        case "poison":
+                            echo "どく ";
+                            break;
+                        case "ground":
+                            echo "じめん ";
+                            break;
+                        case "psychic":
+                            echo "エスパー ";
+                            break;
+                        case "bug":
+                            echo "むし ";
+                            break;
+                        case "rock":
+                            echo "いわ ";
+                            break;
+                        case "ghost":
+                            echo "ゴースト ";
+                            break;
+                        case "dark":
+                            echo "あく ";
+                            break;
+                        case "steel":
+                            echo "はがね ";
+                            break;
+                        case "fairy":
+                            echo "フェアリー ";
+                            break;
                 }
+            }
                 echo "</p>";
 
                 // たかさ
