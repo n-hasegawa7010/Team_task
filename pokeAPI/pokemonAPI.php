@@ -61,6 +61,7 @@ for($i = 1; $i <= $page; $i++) {
     echo "
     <form action='pokemonAPI.php' method='post'>
         <input type='hidden' name='sel_page' value='{$i}'>
+        <input type='hidden' name='sel_onepage' value='{$one_page}'>
         <input type='submit' class='page_btn' value='{$i}' class='paging'>
     </form>
     ";
@@ -71,10 +72,10 @@ echo <<< _ONEPAGE_
 <div class="select_onepage">
     <form action="pokemonAPI.php" method="post">
         <select name="sel_onepage">
-            <option value="10">-</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
+            <option value="{$one_page}">現在{$one_page}匹表示</option>
+            <option value="10">10匹表示</option>
+            <option value="20">20匹表示</option>
+            <option value="50">50匹表示</option>
         </select>
         <input type="submit" value="変更">
     </form>

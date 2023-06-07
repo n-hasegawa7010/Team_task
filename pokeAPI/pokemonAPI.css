@@ -145,10 +145,9 @@ header h1{
 }
 
 .select_onepage select{
-    width: 40px;
+    width: auto;
     height: 25px;
     background-color: #eee6df;
-    border-radius: 20%;
 }
 
 .select_onepage input{
