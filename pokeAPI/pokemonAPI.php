@@ -51,9 +51,8 @@ function getPokeAPIItems() {
     global $one_page;
     global $now_page;
     global $sel_page;
-    echo $sel_page;
-$res = getCacheContents("https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}", "./cache/pokeAPI_caches_{$sel_page}page");
-return json_decode($res,true);
+    $res = getCacheContents("https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}", "./cache/pokeAPI_caches_{$sel_page}page");
+    return json_decode($res,true);
 }
 
 echo "<div class='paging'>";
@@ -91,13 +90,20 @@ echo '
 $data = getPokeAPIItems();
 foreach($data['results'] as $key => $value){
     // 詳細のurl取得
-    $response_detail = file_get_contents($value['url']);
-    $data_detail = json_decode($response_detail, true);
+    $res_detail = getCacheContents("{$value['url']}", "./cache/pokeAPI_caches_detail_{$value['name']}");
+    $data_detail = json_decode($res_detail,true);
+
+    // 詳細のurl取得
+    // $response_detail = file_get_contents($value['url']);
+    // $data_detail = json_decode($response_detail, true);
 
     // speciesのurl取得
     $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
     $response_species = file_get_contents($url_species);
     $data_species = json_decode($response_species, true);
+
+    $res_species = getCacheContents("https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/", "./cache/pokeAPI_caches_species_{$data_detail['id']}");
+    $data_species = json_decode($res_species,true);
 
     echo '<div class = "poke_data">';
         // 裏面のコンテンツ
