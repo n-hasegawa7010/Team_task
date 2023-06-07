@@ -28,137 +28,141 @@ function getCacheContents($url, $cachePath, $cacheLimit = 86400) {
 }
 }
 
-// function getQiitaItems() {
-//     $res = getCacheContents('https://qiita.com/api/v2/users/laineus/items?page=1&per_page=20', './cache');
-//     return json_decode($res);
-// }
 
 // 取得結果をループさせてポケモンの名前を表示する
-function view_poke(){
-    if(!isset($_POST["sel_page"])) {
-        $sel_page = 1;
-    } else {
-        $sel_page = $_POST["sel_page"];
-    }
+if(!isset($_POST["sel_page"])) {
+    $sel_page = 1;
+} else {
+    $sel_page = $_POST["sel_page"];
+}
 
-    if(!isset($_POST["sel_onepage"])) {
-        $one_page = 10; // 1ページに表示するポケモンの数
-    } else {
-        $one_page = $_POST["sel_onepage"];
-    }
+if(!isset($_POST["sel_onepage"])) {
+    $one_page = 10; // 1ページに表示するポケモンの数
+} else {
+    $one_page = $_POST["sel_onepage"];
+}
 
-    $limit = 100; // 表示するポケモンの最大数
-    $page = $limit / $one_page; # ページ数を取得
-    $page = ceil($page); # 整数に直す。
-    $now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
+$limit = 100; // 表示するポケモンの最大数
+$page = $limit / $one_page; # ページ数を取得
+$page = ceil($page); # 整数に直す。
+$now_page = ($sel_page - 1) * $one_page; # OFFSET を取得 ページ数 -1 * 20
 
-    echo "<div class='paging'>";
-    for($i = 1; $i <= $page; $i++) {
-        echo "
-        <form action='pokemonAPI.php' method='post'>
-            <input type='hidden' name='sel_page' value='{$i}'>
-            <input type='submit' class='page_btn' value='{$i}' class='paging'>
-        </form>
-        ";
-    }
-    echo "</div>";
+function getPokeAPIItems() {
+    global $one_page;
+    global $now_page;
+    global $sel_page;
+    echo $sel_page;
+$res = getCacheContents("https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}", "./cache/pokeAPI_caches_{$sel_page}page");
+return json_decode($res,true);
+}
 
-    echo '
-    <div class="select_onepage">
-        <form action="pokemonAPI.php" method="post">
-            <select name="sel_onepage">
-                <option value="10">-</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-            </select>
-            <input type="submit" value="変更">
-        </form>
-    </div>
-    ';
+echo "<div class='paging'>";
+// echo $sel_page;
+for($i = 1; $i <= $page; $i++) {
+    echo "
+    <form action='pokemonAPI.php' method='post'>
+        <input type='hidden' name='sel_page' value='{$i}'>
+        <input type='submit' class='page_btn' value='{$i}' class='paging'>
+    </form>
+    ";
+}
+echo "</div>";
 
-    /** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
-    $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
-    $response = file_get_contents($url);
+echo '
+<div class="select_onepage">
+    <form action="pokemonAPI.php" method="post">
+        <select name="sel_onepage">
+            <option value="10">-</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select>
+        <input type="submit" value="変更">
+    </form>
+</div>
+';
 
-    // レスポンスデータは JSON 形式なので、デコードして連想配列にする
-    $data = json_decode($response, true);
-    foreach($data['results'] as $key => $value){
-        // 詳細のurl取得
-        $response_detail = file_get_contents($value['url']);
-        $data_detail = json_decode($response_detail, true);
+/** PokeAPI のデータを取得する(id=1から10のポケモンのデータ) */
+// $url = "https://pokeapi.co/api/v2/pokemon/?limit={$one_page}&offset={$now_page}";
+// $response = file_get_contents($url);
 
-        // speciesのurl取得
-        $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
-        $response_species = file_get_contents($url_species);
-        $data_species = json_decode($response_species, true);
+// レスポンスデータは JSON 形式なので、デコードして連想配列にする
+// $data = json_decode($response, true);
+$data = getPokeAPIItems();
+foreach($data['results'] as $key => $value){
+    // 詳細のurl取得
+    $response_detail = file_get_contents($value['url']);
+    $data_detail = json_decode($response_detail, true);
 
-        echo '<div class = "poke_data">';
-            // 裏面のコンテンツ
-            echo '<div class="back">';
+    // speciesのurl取得
+    $url_species = "https://pokeapi.co/api/v2/pokemon-species/{$data_detail['id']}/";
+    $response_species = file_get_contents($url_species);
+    $data_species = json_decode($response_species, true);
+
+    echo '<div class = "poke_data">';
+        // 裏面のコンテンツ
+        echo '<div class="back">';
+            echo "<br>";
+            echo '<div class = "poke_img">';
+                echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像_表'"."<br>"; // デフォルト正面
                 echo "<br>";
-                echo '<div class = "poke_img">';
-                    echo "<img src={$data_detail['sprites']['front_default']} alt='ポケモン画像_表'"."<br>"; // デフォルト正面
-                    echo "<br>";
-                echo '</div>';
-
-                echo '<div class = "button">';
-                    echo '<input type = "button" class = "btnA"></p>';
-                    echo '<input type = "button" class = "btnB"></p>';
-                echo '</div>';
-
-                echo '<div class = "line">';
-                    echo '<p class="lineA"></p>';
-                    echo '<p class="lineB"></p>';
-                    echo '<p class="lineC"></p>';
-                    echo '<p class="lineD"></p>';
-                echo '</div>';
-
-                // ポケモン説明：なまえ、タイプ、おもさ、たかさ
-                echo '<div class = "poke_ex">';
-                    // 名前
-                    echo "<p class = 'poke_name'>";
-                        echo "No."."{$data_detail['id']}"."<br>"; // ポケモン_id
-                        echo "{$data_species['names']['0']['name']}"; // 日本語のなまえ
-                        // " ({$value['name']})". //英語のなまえ
-                    echo "</p>";
-
-                    // タイプ
-                    echo "<p>タイプ：";
-                    foreach($data_detail['types'] as $key2 => $poke_type){
-                        echo $poke_type['type']['name']." ";
-                    }
-                    echo "</p>";
-
-                    // たかさ
-                    echo "<p>たかさ：".$data_detail['height']." m</p>";
-                    
-                    // おもさ
-                    echo "<p>おもさ：".$data_detail['weight']." kg</p>";
-                echo '</div>';
             echo '</div>';
 
-            // 表面のコンテンツ
-            echo '<div class="front">';
-                echo "<br>";
-                echo '<div class = "poke_img">';
-                    echo "<img src={$data_detail['sprites']['back_default']} alt='ポケモン画像_裏'"."<br>"; // デフォルト正面
-                    echo "<br>";
-                echo '</div>';
+            echo '<div class = "button">';
+                echo '<input type = "button" class = "btnA"></p>';
+                echo '<input type = "button" class = "btnB"></p>';
+            echo '</div>';
 
-                echo '<div class = "Exp">';
-                    echo "{$data_species['flavor_text_entries']['22']['flavor_text']}";
-                echo '</div>';
+            echo '<div class = "line">';
+                echo '<p class="lineA"></p>';
+                echo '<p class="lineB"></p>';
+                echo '<p class="lineC"></p>';
+                echo '<p class="lineD"></p>';
+            echo '</div>';
 
-                echo '<div class = "battery">';
-                    echo '<div class = "pull"></div>';
-                    echo '<div class = "battery_box"></div>';
-                echo '</div>';
+            // ポケモン説明：なまえ、タイプ、おもさ、たかさ
+            echo '<div class = "poke_ex">';
+                // 名前
+                echo "<p class = 'poke_name'>";
+                    echo "No."."{$data_detail['id']}"."<br>"; // ポケモン_id
+                    echo "{$data_species['names']['0']['name']}"; // 日本語のなまえ
+                    // " ({$value['name']})". //英語のなまえ
+                echo "</p>";
+
+                // タイプ
+                echo "<p>タイプ：";
+                foreach($data_detail['types'] as $key2 => $poke_type){
+                    echo $poke_type['type']['name']." ";
+                }
+                echo "</p>";
+
+                // たかさ
+                echo "<p>たかさ：".$data_detail['height']." m</p>";
+                
+                // おもさ
+                echo "<p>おもさ：".$data_detail['weight']." kg</p>";
             echo '</div>';
         echo '</div>';
-    }
+
+        // 表面のコンテンツ
+        echo '<div class="front">';
+            echo "<br>";
+            echo '<div class = "poke_img">';
+                echo "<img src={$data_detail['sprites']['back_default']} alt='ポケモン画像_裏'"."<br>"; // デフォルト正面
+                echo "<br>";
+            echo '</div>';
+
+            echo '<div class = "Exp">';
+                echo "{$data_species['flavor_text_entries']['22']['flavor_text']}";
+            echo '</div>';
+
+            echo '<div class = "battery">';
+                echo '<div class = "pull"></div>';
+                echo '<div class = "battery_box"></div>';
+            echo '</div>';
+        echo '</div>';
+    echo '</div>';
 }
-view_poke();
 
 
 ?>
